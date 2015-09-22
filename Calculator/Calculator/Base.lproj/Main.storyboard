@@ -292,11 +292,21 @@
                                     <action selector="setOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aWm-ai-8w4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqM-Nl-KWm" userLabel="Operation Display">
+                                <rect key="frame" x="42" y="44" width="0.0" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CqM-Nl-KWm" secondAttribute="height" multiplier="2:1" id="lgH-sa-LDH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="def-EN-e3U" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:4" id="0Bu-sg-uBa"/>
                             <constraint firstItem="zvn-Lj-XAD" firstAttribute="leading" secondItem="cYX-vk-dsM" secondAttribute="trailing" id="0lT-vz-Jq3"/>
+                            <constraint firstItem="CqM-Nl-KWm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="1AS-fp-mIV"/>
                             <constraint firstItem="Jyj-AF-Tcd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:4" id="2bO-Lj-MS6"/>
                             <constraint firstItem="m79-tz-rRF" firstAttribute="top" secondItem="9WI-Dd-JkO" secondAttribute="bottom" id="2ku-HX-qev"/>
                             <constraint firstItem="8Au-4J-UWn" firstAttribute="top" secondItem="cYX-vk-dsM" secondAttribute="bottom" id="4Aj-He-h9a"/>
@@ -315,11 +325,13 @@
                             <constraint firstItem="zvn-Lj-XAD" firstAttribute="top" secondItem="Jyj-AF-Tcd" secondAttribute="bottom" id="CdL-z2-3Gi"/>
                             <constraint firstItem="W6w-G9-688" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:4" id="CoQ-OF-afK"/>
                             <constraint firstItem="8Au-4J-UWn" firstAttribute="top" secondItem="zvn-Lj-XAD" secondAttribute="bottom" id="Crh-c3-xz8"/>
+                            <constraint firstItem="CqM-Nl-KWm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="21:284" id="D6D-9Z-GiM"/>
                             <constraint firstItem="def-EN-e3U" firstAttribute="top" secondItem="xnW-fT-nY6" secondAttribute="bottom" constant="1" id="Eqz-cO-Pmn"/>
                             <constraint firstAttribute="trailing" secondItem="qAf-mf-LNU" secondAttribute="trailing" id="FCo-AH-Vcq"/>
                             <constraint firstItem="hBO-pg-f0g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="G48-TS-1nX"/>
                             <constraint firstAttribute="trailing" secondItem="hBO-pg-f0g" secondAttribute="trailing" id="GAn-7b-mHT"/>
                             <constraint firstItem="bet-Dt-Qkr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:4" id="Hkk-Vl-HN1"/>
+                            <constraint firstItem="CqM-Nl-KWm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hl4-gN-ib6"/>
                             <constraint firstItem="8yy-qW-CoO" firstAttribute="top" secondItem="tXa-b4-BR0" secondAttribute="bottom" id="Kby-Ih-RC0"/>
                             <constraint firstItem="uLV-y7-jIP" firstAttribute="leading" secondItem="bet-Dt-Qkr" secondAttribute="trailing" id="Lfe-hh-0DS"/>
                             <constraint firstItem="xnW-fT-nY6" firstAttribute="leading" secondItem="3Dm-fe-aAr" secondAttribute="trailing" id="MCQ-oU-Ucn"/>
@@ -361,6 +373,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="displayLabel" destination="hBO-pg-f0g" id="jxe-gf-miz"/>
+                        <outlet property="operationDisplay" destination="CqM-Nl-KWm" id="Pfk-2K-wqM"/>
                     </connections>
                 </viewController>
             </objects>
