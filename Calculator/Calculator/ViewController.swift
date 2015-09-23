@@ -12,9 +12,6 @@ var number1 = ""
 var number2 = ""
 var operation: OperationType?
 
-var num1 = Double(number1)
-var num2 = Double(number2)
-
 func numberIsDivisible(number: Double) -> Bool {
     if number % 1 == 0 {
         return true
@@ -25,7 +22,6 @@ func numberIsDivisible(number: Double) -> Bool {
 
 class ViewController: UIViewController {
     @IBOutlet weak var displayLabel: UILabel!
-    
     @IBOutlet weak var operationDisplay: UILabel!
     
     @IBAction func numberPressed(button: UIButton) {
@@ -34,9 +30,15 @@ class ViewController: UIViewController {
         if operation == nil {
             number1 += num
             displayLabel.text = number1
+            print("Number1:\(number1)")
+            print("Number2:\(number2)")
+            
         } else {
+            
             number2 += num
             displayLabel.text = number2
+            print("Number1:\(number1)")
+            print("Number2:\(number2)")
             
         }
         
@@ -51,40 +53,18 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func changeSign() {
-        if operation == nil {
-            num1 = num1! * -1
-            if numberIsDivisible(num1!) == true {
-                displayLabel.text = "\(Int(num1!))"
-                
-            } else {
-                displayLabel.text = "\(num1!))"
-                
-            }
-
-        } else {
-            num2 = num2! * -1
-            if numberIsDivisible(num2!) == true {
-                displayLabel.text = "\(Int(num2!))"
-                
-            } else {
-                displayLabel.text = "\(num2!))"
-                
-            }
-            
-        }
-        
-    }
     
     @IBAction func setOperation(button:UIButton) {
         let opSign = button.titleLabel!.text!
-        operation = OperationType(rawValue: opSign) //this is a function that creates a new operation type with a chosen value based on the string that we are passing in
+        operation = OperationType(rawValue: opSign)
+        number2 = ""
         operationDisplay.text = opSign
     
     }
     
     @IBAction func runEquation() {
-
+        var num1 = Double(number1)
+        var num2 = Double(number2)
         let total = calculateNumbers(n1: num1!, n2: num2!, operation: operation!)
         
         if numberIsDivisible(total) {
@@ -94,9 +74,52 @@ class ViewController: UIViewController {
             
         }
         
+        num1 = total
+        
         number1 = displayLabel.text!
-        operationDisplay.text = ""
+        print(operation)
+        print("Number1:\(number1)")
+        print("Number2:\(number2)")
+        print("Num1:\(num1)")
+        print("Num2:\(num2)")
+    }
+    
+    @IBAction func changeSign() {
+        if operation == nil {
+            
+            var num1 = Double(number1)
+            num1 = num1! * -1
+            if numberIsDivisible(num1!) == true {
+                displayLabel.text = "\(Int(num1!))"
+            } else {
+                displayLabel.text = "\(num1!))"
+            }
+            
+        } else {
+            var num2 = Double(number2)
+            num2 = num2! * -1
+            if numberIsDivisible(num2!) == true {
+                displayLabel.text = "\(Int(num2!))"
+            } else {
+                displayLabel.text = "\(num2!))"
+                
+            }
+            
+        }
         
     }
+    
+    @IBAction func addDecimal() {
+        if operation == nil {
+            
+            print("add decimal to first number")
+            
+        } else {
+            print("add decimal to second number")
+            
+        }
+        
+    }
+
     
 }
