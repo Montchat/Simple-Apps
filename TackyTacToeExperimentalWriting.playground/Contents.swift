@@ -9,6 +9,7 @@ var playerTwoScore = 0
 var stalemates = 0
 var isPlayerOneTurn = true
 
+
 class ViewController: UIViewController {
     override func viewDidLoad() {
         
