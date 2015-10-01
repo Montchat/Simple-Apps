@@ -13,6 +13,7 @@
 		2B6A5A601BB4E4620071C2B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B6A5A5F1BB4E4620071C2B9 /* Assets.xcassets */; };
 		2B6A5A631BB4E4620071C2B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B6A5A611BB4E4620071C2B9 /* LaunchScreen.storyboard */; };
 		2B6A5A6B1BB4E46E0071C2B9 /* TTTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A5A6A1BB4E46E0071C2B9 /* TTTButton.swift */; settings = {ASSET_TAGS = (); }; };
+		2BCAF1BF1BB9E5EE005C8B72 /* HeadlineA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BCAF1BD1BB9E526005C8B72 /* HeadlineA.ttf */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2B6A5A621BB4E4620071C2B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B6A5A641BB4E4620071C2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B6A5A6A1BB4E46E0071C2B9 /* TTTButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTTButton.swift; sourceTree = "<group>"; };
+		2BCAF1BD1BB9E526005C8B72 /* HeadlineA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HeadlineA.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +65,17 @@
 				2B6A5A5F1BB4E4620071C2B9 /* Assets.xcassets */,
 				2B6A5A611BB4E4620071C2B9 /* LaunchScreen.storyboard */,
 				2B6A5A641BB4E4620071C2B9 /* Info.plist */,
+				2BCAF1BC1BB9DF76005C8B72 /* Resources */,
 			);
 			path = TickyTacToe;
+			sourceTree = "<group>";
+		};
+		2BCAF1BC1BB9DF76005C8B72 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2BCAF1BD1BB9E526005C8B72 /* HeadlineA.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BCAF1BF1BB9E5EE005C8B72 /* HeadlineA.ttf in Resources */,
 				2B6A5A631BB4E4620071C2B9 /* LaunchScreen.storyboard in Resources */,
 				2B6A5A601BB4E4620071C2B9 /* Assets.xcassets in Resources */,
 				2B6A5A5E1BB4E4620071C2B9 /* Main.storyboard in Resources */,
@@ -287,6 +299,7 @@
 				2B6A5A691BB4E4620071C2B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

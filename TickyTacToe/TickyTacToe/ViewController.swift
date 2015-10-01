@@ -18,6 +18,9 @@ class ResetScoresButton: UIButton {
 }
 
 class ViewController: UIViewController {
+    let screenHeight = Int(UIScreen.mainScreen().bounds.height)
+    let screenWidth = Int(UIScreen.mainScreen().bounds.width)
+    
     var grid = [[0,0,0],[0,0,0],[0,0,0]]
     var winCondition = false
     var isPlayerOneTurn = true
@@ -28,25 +31,34 @@ class ViewController: UIViewController {
     var playerTwoScore = 0
     var stalemates = 0
     
-    let gameStatusLabel = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 50))
-    let playersScoresLabel = UILabel(frame:CGRect(x: 0, y: 50, width: 200, height: 50))
+    let playerOneScoreImage: UIImageView = UIImageView(image: UIImage(named: "Yellow"))
+    let playerTwoScoreImage: UIImageView = UIImageView(image: UIImage(named: "Blue"))
+
+    let playerOneScoreText: UILabel = UILabel()
+    let playerTwoScoreText: UILabel = UILabel()
+    let stalematesImage: UIImageView = UIImageView(image: UIImage(named: "Stalemates"))
+    let stalematesText: UILabel = UILabel()
+    
+    let gameStatusLabel = UIImageView(image: UIImage(named: "Yellow"))
     let resetScoresButton = ResetScoresButton (frame: CGRect(x: 0, y: 150, width: 200, height: 50))
     let resetGameBoardButton = ResetGameBoardButton(frame: CGRect(x: 0, y: 525, width: 200, height: 50))
+    
+    let winnerMessage = UIImageView!()
+    let resetButtonImage: UIImage? = UIImage(named: "RestartButton")
 
     func resetScores(button: ResetScoresButton) {
         playerOneScore = 0
         playerTwoScore = 0
         stalemates = 0
         turn = 0
-        playersScoresLabel.text = "p1: \(playerOneScore) p2: \(playerTwoScore) s: \(stalemates)"
+        playerOneScoreText.text = "\(playerOneScore)"
+        playerTwoScoreText.text = "\(playerTwoScore)"
         
         grid = [[0,0,0],[0,0,0],[0,0,0]]
         winCondition = false
         isPlayerOneTurn = true
         turn = 0
-        resetGameBoardButton.setTitle("End Game", forState: UIControlState.Normal)
-        gameStatusLabel.text = "Player1 Turn"
-        gameStatusLabel.backgroundColor = UIColor.redColor()
+        gameStatusLabel.image = UIImage(named: "Player1")
         
         for subview in view.subviews {
             if let button = subview as? TTTButton {
@@ -64,8 +76,7 @@ class ViewController: UIViewController {
         isPlayerOneTurn = true
         turn = 0
         resetGameBoardButton.setTitle("End Game", forState: UIControlState.Normal)
-        gameStatusLabel.text = "Player1 Turn"
-        gameStatusLabel.backgroundColor = UIColor.redColor()
+        gameStatusLabel.image = UIImage(named:"Yellow")
 
         for subview in view.subviews {
         if let button = subview as? TTTButton {
@@ -80,15 +91,13 @@ class ViewController: UIViewController {
     func buttonPressed(button: TTTButton) {
         if button.player == 0 && winCondition == false  {
             turn++
-            
             button.player = isPlayerOneTurn ? 1 : 2
             
             if isPlayerOneTurn == true {
-                gameStatusLabel.backgroundColor = UIColor.blueColor()
-                gameStatusLabel.text = "Player2 Turn"
+                gameStatusLabel.image = UIImage(named: "Blue")
+
             } else {
-                gameStatusLabel.text = "Player1 Turn"
-                gameStatusLabel.backgroundColor = UIColor.redColor()
+                gameStatusLabel.image = UIImage(named: "Yellow")
                 
             }
             
@@ -124,19 +133,17 @@ class ViewController: UIViewController {
                 if value1 == value2 && value2 == value3 && value1 != 0 {
                     
                     winCondition = true
-                    gameStatusLabel.text = "We have a winner!"
+//                    winnerMessage.hidden = false
                     
                     if !isPlayerOneTurn {
-                        gameStatusLabel.text = "Player1 wins!"
-                        gameStatusLabel.backgroundColor = UIColor.redColor()
+                        gameStatusLabel.image = UIImage(named: "Yellow")
                         playerOneScore++
-                        playersScoresLabel.text = "p1: \(playerOneScore) p2: \(playerTwoScore) s: \(stalemates)"
+                        playerOneScoreText.text = "\(playerOneScore)"
                         
                     } else {
-                        gameStatusLabel.text = "Player2 wins"
-                        gameStatusLabel.backgroundColor = UIColor.blueColor()
+                        gameStatusLabel.image = UIImage(named: "Blue")
                         playerTwoScore++
-                        playersScoresLabel.text = "p1: \(playerOneScore) p2: \(playerTwoScore) s: \(stalemates)"
+                        playerTwoScoreText.text = "\(playerTwoScore)"
                         
                     }
                     
@@ -145,9 +152,8 @@ class ViewController: UIViewController {
                 } else if turn == 9 {
                     stalemate = true
                     stalemates++
-                    playersScoresLabel.text = "p1: \(playerOneScore) p2: \(playerTwoScore) s: \(stalemates)"
-                    gameStatusLabel.text = "Stalemate!"
-                        
+                    stalematesText.text = "\(stalemates)"
+                    
                 }
 
             }
@@ -159,31 +165,75 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gameStatusLabel.text = "Player1 Turn"
-        gameStatusLabel.textAlignment = .Center
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "RedBackground.png")!)
+        
+        gameStatusLabel.frame = CGRect(x: view.center.x, y: view.center.y - 300, width: 75, height: 75)
         gameStatusLabel.center.x = view.center.x
-        gameStatusLabel.textColor = UIColor.grayColor()
-        gameStatusLabel.backgroundColor = UIColor.redColor()
+        gameStatusLabel.center.y = view.center.y - 300
         
         view.addSubview(gameStatusLabel)
         
-        playersScoresLabel.text = "p1: \(playerOneScore) p2: \(playerTwoScore) s: \(stalemates)"
-        playersScoresLabel.textAlignment = .Center
-        playersScoresLabel.center.x = view.center.x
+        playerOneScoreImage.frame = CGRect(x: view.center.x, y: view.center.y - 300, width: 75, height: 75)
+        playerOneScoreImage.center.x = view.center.x - 150
+        playerOneScoreImage.center.y = view.center.y - 300
         
-        view.addSubview(playersScoresLabel)
+        view.addSubview(playerOneScoreImage)
+        
+        playerTwoScoreImage.frame = CGRect(x: view.center.x + 20, y: view.center.y - 300, width: 75, height: 75)
+        playerTwoScoreImage.center.x = view.center.x + 150
+        playerTwoScoreImage.center.y = view.center.y - 300
+        
+        view.addSubview(playerTwoScoreImage)
+        
+        stalematesImage.frame = CGRect(x: view.center.x + 20, y: view.center.y - 300, width: 25, height: 25)
+        stalematesImage.center.x = view.center.x - 150
+        stalematesImage.center.y = view.center.y - 150
+        
+        view.addSubview(stalematesImage)
+        
+        playerOneScoreText.frame = CGRect(x: view.center.x, y: view.center.y - 300, width: 75, height: 75)
+        playerOneScoreText.center.x = view.center.x - 150
+        playerOneScoreText.center.y = view.center.y - 300
+        playerOneScoreText.text = "\(playerOneScore)"
+        playerOneScoreText.textAlignment = .Center
+        playerOneScoreText.font = UIFont(name: "HeadlineA", size: 48)
+        playerOneScoreText.textColor = UIColor.grayColor()
+        
+        view.addSubview(playerOneScoreText)
+        
+        playerTwoScoreText.frame = CGRect(x: view.center.x, y: view.center.y - 300, width: 75, height: 75)
+        playerTwoScoreText.center.x = view.center.x + 150
+        playerTwoScoreText.center.y = view.center.y - 300
+        playerTwoScoreText.text = "\(playerTwoScore)"
+        playerTwoScoreText.textAlignment = .Center
+        playerTwoScoreText.font = UIFont(name: "HeadlineA", size: 48)
+        playerTwoScoreText.textColor = UIColor.grayColor()
+        
+        view.addSubview(playerTwoScoreText)
+        
+        stalematesText.frame = CGRect(x: view.center.x + 20, y: view.center.y - 300, width: 25, height: 25)
+        stalematesText.center.x = view.center.x - 150
+        stalematesText.center.y = view.center.y - 150
+        stalematesText.text = ""
+        stalematesText.textAlignment = .Center
+        stalematesText.font = UIFont(name: "HeadlineA", size: 24)
+        stalematesText.textColor = UIColor.whiteColor()
+        
+        view.addSubview(stalematesText)
         
         resetGameBoardButton.setTitle("End Game", forState: UIControlState.Normal)
         resetGameBoardButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+        resetGameBoardButton.setImage(resetButtonImage, forState: .Normal)
         resetGameBoardButton.titleLabel?.textAlignment = .Center
         resetGameBoardButton.center.x = view.center.x
-        resetGameBoardButton.backgroundColor = UIColor.yellowColor()
+//        resetGameBoardButton.backgroundColor = UIColor.yellowColor()
         resetGameBoardButton.addTarget(self, action: "resetGameBoard:", forControlEvents: .TouchUpInside)
         
         view.addSubview(resetGameBoardButton)
         
         resetScoresButton.setTitle("Reset Scores", forState: UIControlState.Normal)
         resetScoresButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+        resetScoresButton.setImage(resetButtonImage, forState: .Normal)
         resetScoresButton.titleLabel?.textAlignment = .Center
         resetScoresButton.center.x = view.center.x
         resetScoresButton.backgroundColor = UIColor.yellowColor()
@@ -191,8 +241,10 @@ class ViewController: UIViewController {
         
         view.addSubview(resetScoresButton)
         
-        let screenHeight = Int(UIScreen.mainScreen().bounds.height)
-        let screenWidth = Int(UIScreen.mainScreen().bounds.width)
+        
+//        winnerMessage.image = UIImage(named: "RestartButton")
+//        winnerMessage.hidden = true
+//        view.addSubview(winnerMessage)
         
         let buttonHW = 100
         let buttonSpacing = 4
@@ -200,6 +252,8 @@ class ViewController: UIViewController {
         
         let leftSpacing = (screenWidth - gridHW) / 2
         let topSpacing = (screenHeight - gridHW) / 2
+        
+        let image = UIImage(named: "White")
         
         for (r,row) in grid.enumerate() {
             for (c, _) in row.enumerate() {
@@ -212,9 +266,7 @@ class ViewController: UIViewController {
                 button.row = r
                 button.col = c
                 
-                button.backgroundColor = UIColor.yellowColor()
-                button.setTitle("", forState: .Normal)
-                button.setTitleColor(UIColor.grayColor(), forState: .Normal)
+                button.setImage(image, forState: .Normal)
                 
                 view.addSubview(button)
                 

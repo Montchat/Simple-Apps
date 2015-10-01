@@ -15,9 +15,9 @@ class TTTButton: UIButton {
     var player = 0 {
         didSet {
             switch player {
-            case 1: backgroundColor = UIColor.redColor()
-            case 2: backgroundColor = UIColor.blueColor()
-            default: backgroundColor = UIColor.yellowColor()
+            case 1: setImage(UIImage(named: "Yellow"), forState: .Normal)
+            case 2: setImage(UIImage(named: "Blue"), forState: .Normal)
+            default: setImage(UIImage(named: "White"), forState: .Normal)
                 
             }
             
