@@ -14,29 +14,15 @@ private var COUNT = 5
 private let SELECTOR = "countdown"
 
 class ViewController: UIViewController {
-    
-
-    @IBAction func buttonPressed(sender: AnyObject) {
-        
-    }
+    var timer = NSTimer()
     
     @IBOutlet weak var countDownLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         countDownLabel.text = String(COUNT)
+        timer = NSTimer(timeInterval: TIME_INTERVAL, target: self, selector: Selector(SELECTOR), userInfo: nil, repeats: true)
 
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        
-    }
-    
-    func startTimer(var theTime: NSTimer) {
-        theTime = NSTimer(timeInterval: TIME_INTERVAL, target: self, selector: Selector(SELECTOR), userInfo: nil, repeats: true)
-
-        
     }
     
     func countdown() {
@@ -44,7 +30,7 @@ class ViewController: UIViewController {
         
         if COUNT > 0 {
             print(COUNT)
-            COUNT - 1
+            COUNT--
             countDownLabel.text = String(COUNT)
             
         } else if COUNT == 0 {
@@ -52,12 +38,5 @@ class ViewController: UIViewController {
         }
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
-
 
 }
-
