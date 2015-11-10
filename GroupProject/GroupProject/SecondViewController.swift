@@ -10,13 +10,11 @@ import UIKit
 
 class SecondViewController: UIViewController {
     
-    
     //MARK: - @IBOutlet
     @IBOutlet weak var wordsLabel: UILabel!
 
     //MARK: - Properties
     var colorArray: [UIColor]?
-    
     
     //MARK: - @IBActions
     @IBAction func buttonPressed(sender: AnyObject) {
@@ -24,9 +22,9 @@ class SecondViewController: UIViewController {
             if let backgroundColor = button.backgroundColor {
                 self.view.backgroundColor = backgroundColor
                     colorArray?.append(backgroundColor)
-                WordsTableViewController.callTableViewController()
                 wordsLabel.text = WordsTableViewController.callTableViewController().wordArray[button.tag]
                 wordsLabel.textColor = button.titleLabel?.textColor
+                print(WordsTableViewController.callTableViewController().number)
                 
             }
             
