@@ -26,7 +26,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="op4-i2-m7d" customClass="AccuracyView" customModule="BeaconHunt" customModuleProvider="target">
                                 <rect key="frame" x="-45" y="78" width="411" height="411"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beacon_grey" translatesAutoresizingMaskIntoConstraints="NO" id="d2K-bl-voq">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="beacon_grey" translatesAutoresizingMaskIntoConstraints="NO" id="d2K-bl-voq">
                                         <rect key="frame" x="145" y="146" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="d2K-bl-voq" secondAttribute="height" multiplier="1:1" id="LZH-rZ-dhx"/>
@@ -36,9 +36,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="op4-i2-m7d" secondAttribute="height" multiplier="1:1" id="86E-fJ-rl0"/>
-                                    <constraint firstAttribute="trailing" secondItem="d2K-bl-voq" secondAttribute="trailing" constant="146" id="eI9-p0-oUi"/>
-                                    <constraint firstItem="d2K-bl-voq" firstAttribute="centerY" secondItem="op4-i2-m7d" secondAttribute="centerY" id="fSe-RL-2nq"/>
-                                    <constraint firstItem="d2K-bl-voq" firstAttribute="leading" secondItem="op4-i2-m7d" secondAttribute="leading" constant="145" id="ygk-BL-xgQ"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cold" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4i-mb-gM9">

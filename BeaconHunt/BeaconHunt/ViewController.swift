@@ -99,6 +99,7 @@ class ViewController: UIViewController {
         shake.fromValue = from_Value
         shake.toValue = to_Value
         beaconImageView.layer.addAnimation(shake, forKey: "position")
+        beaconProximityLabel.layer.addAnimation(shake, forKey: "position")
         
     }
 

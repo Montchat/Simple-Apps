@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         countDownLabel.text = String(COUNT)
-        timer = NSTimer(timeInterval: TIME_INTERVAL, target: self, selector: Selector(SELECTOR), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(TIME_INTERVAL, target: self, selector: Selector(SELECTOR), userInfo: nil, repeats: true)
+//        timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval: TIME_INTERVAL, target: self, selector: Selector(SELECTOR), userInfo: nil, repeats: true)
 
     }
     
@@ -34,6 +35,7 @@ class ViewController: UIViewController {
             countDownLabel.text = String(COUNT)
             
         } else if COUNT == 0 {
+            timer.invalidate()
             
         }
         
