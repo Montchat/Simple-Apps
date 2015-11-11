@@ -22,12 +22,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         countDownLabel.text = String(COUNT)
         timer = NSTimer.scheduledTimerWithTimeInterval(TIME_INTERVAL, target: self, selector: Selector(SELECTOR), userInfo: nil, repeats: true)
-//        timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval: TIME_INTERVAL, target: self, selector: Selector(SELECTOR), userInfo: nil, repeats: true)
 
     }
     
     func countdown() {
-        print("it worked")
         
         if COUNT > 0 {
             print(COUNT)
