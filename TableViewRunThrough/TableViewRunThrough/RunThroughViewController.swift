@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 private let CELL = "cell"
 
@@ -29,6 +30,8 @@ class RunThroughViewController: UIViewController {
     ]
 
     //MARK: @IBOutlets
+    
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var familyMemberLabel: UILabel!
     @IBOutlet weak var familyMemberView: UIView!
     @IBOutlet weak var familyMemberTableView: UITableView!
@@ -39,6 +42,8 @@ class RunThroughViewController: UIViewController {
         familyMemberTableView.delegate = self ; familyMemberTableView.dataSource = self //setting the tableViews delegate and dataSource
         familyMemberLabel.text = "Select a family member from below" // tells the user to select a family member
         familyMemberView.layer.cornerRadius = familyMemberView.frame.height / 4 //makes the view have cornered edges
+        familyMemberTableView.layer.cornerRadius = 25 //adjusts the cornered edges of the tableView
+        familyMemberTableView.layer.masksToBounds = true // helps with adjusting the cornered edges of the tableView
 
     }
 
@@ -69,7 +74,9 @@ extension RunThroughViewController : UITableViewDataSource {
         
         let familyMember = edwardsFamilyMembers[indexPath.row] ; let name = familyMember[NAME] ; let age = familyMember[AGE]
         let cell = UITableViewCell(style: .Default, reuseIdentifier: CELL) ; cell.textLabel?.text = name; cell.detailTextLabel?.text = age
-
+        cell.backgroundView?.layer.cornerRadius = cell.frame.height / 2 ; cell.contentView.layer.cornerRadius = cell.frame.height / 2
+        cell.contentView.layer.masksToBounds = true ; cell.layer.cornerRadius = cell.frame.height / 2 ;cell.layer.masksToBounds = true
+        
         return cell
         
     }
