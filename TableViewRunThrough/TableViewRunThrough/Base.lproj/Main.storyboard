@@ -20,27 +20,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRU-Ti-mpW">
-                                <rect key="frame" x="37" y="20" width="300" height="150"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Member" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwa-36-814">
-                                        <rect key="frame" x="8" y="64" width="284" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                                <rect key="frame" x="33" y="20" width="308" height="154"/>
                                 <color key="backgroundColor" red="1" green="0.96862745100000003" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="QOL-jM-oPu"/>
-                                    <constraint firstAttribute="height" constant="150" id="iGg-rp-skV"/>
+                                    <constraint firstAttribute="width" secondItem="dRU-Ti-mpW" secondAttribute="height" multiplier="2:1" id="B1C-8N-GHi"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4EY-aT-YoS">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4EY-aT-YoS">
                                 <rect key="frame" x="29" y="190" width="316" height="481"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="4EY-aT-YoS" secondAttribute="height" multiplier="44:67" id="xYW-PV-iVM"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="QN7-nC-Ra1" style="IBUITableViewCellStyleDefault" id="YlX-oy-oF4">
                                         <rect key="frame" x="0.0" y="28" width="316" height="44"/>
@@ -61,14 +49,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwa-36-814">
+                                <rect key="frame" x="135" y="87" width="104" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Jwa-36-814" secondAttribute="height" multiplier="292:59" id="DyL-3G-wkh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dRU-Ti-mpW" firstAttribute="centerX" secondItem="dI4-f9-fj6" secondAttribute="centerX" id="3kt-xD-AkY"/>
-                            <constraint firstItem="4EY-aT-YoS" firstAttribute="centerX" secondItem="dI4-f9-fj6" secondAttribute="centerX" id="Hf9-EO-N4P"/>
-                            <constraint firstItem="4EY-aT-YoS" firstAttribute="leading" secondItem="dI4-f9-fj6" secondAttribute="leadingMargin" constant="13" id="VkC-xx-Ae0"/>
-                            <constraint firstItem="4EY-aT-YoS" firstAttribute="top" secondItem="dRU-Ti-mpW" secondAttribute="bottom" constant="20" id="i5v-KD-Gk6"/>
-                            <constraint firstItem="dRU-Ti-mpW" firstAttribute="top" secondItem="RZk-Xz-cv8" secondAttribute="bottom" id="q54-eL-fzJ"/>
+                            <constraint firstItem="dRU-Ti-mpW" firstAttribute="top" secondItem="RZk-Xz-cv8" secondAttribute="bottom" id="98m-SD-vca"/>
+                            <constraint firstItem="dRU-Ti-mpW" firstAttribute="leading" secondItem="dI4-f9-fj6" secondAttribute="leadingMargin" constant="17" id="UJ8-qa-XfH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dRU-Ti-mpW" secondAttribute="trailing" constant="18" id="V9v-JC-BvN"/>
+                            <constraint firstItem="Jwa-36-814" firstAttribute="centerX" secondItem="dRU-Ti-mpW" secondAttribute="centerX" id="y2k-GL-JBP"/>
+                            <constraint firstItem="Jwa-36-814" firstAttribute="centerY" secondItem="dRU-Ti-mpW" secondAttribute="centerY" id="zhW-vI-FB4"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
